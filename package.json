@@ -1,0 +1,47 @@
+{
+  "name": "monorepo",
+  "version": "1.0.0",
+  "description": "the Bookit fullstack monorepo",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "prepare": "husky install ./.husky",
+    "start": "pnpm --if-present  --parallel run start",
+    "start:e2e": "pnpm --if-present  --parallel run start:e2e",
+    "test-all": "pnpm --if-present -r run test-all",
+    "test:e2e": "pnpm exec playwright test",
+    "test:e2e:ui": "pnpm exec playwright test --ui",
+    "test:e2e:report": "npx playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.1",
+    "@types/node": "^20.17.12",
+    "backend": "^0.0.0",
+    "eslint": "^8.57.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.1",
+    "prettier": "^3.4.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "pnpm exec prettier --write"
+    ],
+    "./apps/backend/**/*.{js,jsx,ts,tsx}": [
+      "pnpm exec eslint --fix --config ./apps/backend/.eslintrc.js"
+    ],
+    "./apps/frontend/**/*.{js,jsx,ts,tsx}": [
+      "pnpm exec eslint --fix --config ./apps/frontend/.eslintrc.js"
+    ]
+  },
+  "keywords": [],
+  "author": "",
+  "private": true
+}

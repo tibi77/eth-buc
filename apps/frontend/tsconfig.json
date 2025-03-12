@@ -1,0 +1,30 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "target": "ES2021",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ],
+      "@bookIt/types/*": [
+        "../../packages/types/src/*"
+      ],
+      "@bookIt/types": [
+        "../../packages/types/src"
+      ]
+    }
+  },
+  "include": [
+    "src",
+    "src/**/***/*",
+    "vite-env.d.ts",
+    "../../packages/types/src/user/ianaTimezonesList.ts"
+  ]
+}

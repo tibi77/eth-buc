@@ -1,0 +1,47 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "plugins": [
+    "react-hooks",
+    "react-refresh",
+    "no-barrel-files"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2023,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "ignorePatterns": [
+    "src/__generated__/**/*",
+    "generate-api-client.js",
+    "vite.config.ts"
+  ],
+  "rules": {
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "error",
+    "@typescript-eslint/no-explicit-any": 0,
+    "react/react-in-jsx-scope": 0,
+    "no-duplicate-imports": "error",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+        "caughtErrorsIgnorePattern": "^_"
+      }
+    ],
+    "react-refresh/only-export-components": "error",
+    "react/prop-types": 0,
+    "no-barrel-files/no-barrel-files": "error"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}

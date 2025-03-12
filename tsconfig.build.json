@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+      "module": "commonjs",
+      "target": "es2015",
+      "sourceMap": true,
+      "strict": true,
+      "declaration": true,
+      "declarationMap": true,
+      "noEmitOnError": true,
+      "skipLibCheck": true,
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true,
+      "resolveJsonModule": true,
+      "removeComments": true,
+      "jsx": "react-jsx",
+      "noEmit": false
+    },
+    "exclude": [
+      "node_modules",
+      "dist",
+      "**/node_modules",
+      "packages/**/dist",
+      "apps/**/dist"
+    ]
+  }
+  

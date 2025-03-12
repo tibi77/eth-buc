@@ -1,0 +1,25 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "ES2021",
+    "outDir": "./dist",
+    "incremental": true,
+    "strictNullChecks": true,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false,
+    "noEmit": false,
+    "strict": false,
+    "moduleResolution": "node10",
+    "baseUrl": "../..",
+    "noUncheckedIndexedAccess": true,
+    "paths": {
+      "src/*": ["apps/backend/src/*"],
+      "@bookIt/types/*": ["packages/types/src/*"]
+    }
+  }
+}

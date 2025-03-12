@@ -1,0 +1,27 @@
+{
+    "minify": false,
+    "sourceMaps": true,
+    "jsc": {
+      "parser": {
+        "syntax": "typescript",
+        "tsx": true,
+        "decorators": true,
+        "dynamicImport": true
+      },
+      "transform": {
+        "legacyDecorator": true,
+        "decoratorMetadata": true
+      },
+      "target": "es2021",
+      "baseUrl": "../..",
+      "paths": {
+        "@bookIt/types": ["packages/types/src"],
+        "@bookIt/types*": ["packages/types/src/*"],
+        "src/*": ["apps/backend/src/*"]
+      }
+    },
+    "module": {
+      "type": "commonjs"
+    }
+  }
+  
