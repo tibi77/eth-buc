@@ -17,6 +17,8 @@ export const PasswordRecovery = () => {
         from: passwordRecoveryRoute.id,
     });
 
+    
+
     const updatePassword = useAuthenticationPasswordReset();
     const { toast } = useToast();
     const form = useForm<TPasswordRecoveryChecker>({

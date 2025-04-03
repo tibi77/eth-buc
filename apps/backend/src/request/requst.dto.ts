@@ -1,3 +1,4 @@
+/* eslint-disable @darraghor/nestjs-typed/api-property-returning-array-should-set-array */
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 
 // create-request.dto.ts
@@ -165,7 +166,6 @@ export class PaymentCalldataDto {
     @ApiProperty({
         description: 'The transactions needed to pay the request',
         type: [TransactionDto],
-        isArray: true
     })
     transactions: TransactionDto[];
 
@@ -220,7 +220,6 @@ export class PayResponseDto {
     @ApiProperty({
         description: 'The transactions needed to pay the request',
         type: [TransactionDto],
-        isArray: true
     })
     transactions: TransactionDto[];
 

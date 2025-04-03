@@ -7,7 +7,7 @@ import { Module } from '@nestjs/common';
 import { RequestService } from './request.service';
 
 @Module({
-    imports: [RequestService],
+    imports: [],
     controllers: [RequestController,],
     providers: [RequestService],
 })

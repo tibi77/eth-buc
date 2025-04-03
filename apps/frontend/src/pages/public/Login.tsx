@@ -13,7 +13,7 @@ import { z } from "zod";
 
 export function Login() {
   const [error, setError] = useState("");
-  const { login, removeToken } = useContext(authContext);
+  const { login, removeToken,} = useContext(authContext);
   const navigate = useNavigate();
 
   useEffect(() => {
