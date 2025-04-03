@@ -6,7 +6,7 @@ import { useToast } from '@/hooks/use-toast';
 import { passwordRecoveryRoute } from '@/routes/public';
 import { defaultValues } from '@/utils/utils';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { AuthenticationShape, PasswordRecoveryChecker, TPasswordRecoveryChecker } from '@bookIt/types/authentication';
+import { AuthenticationShape, PasswordRecoveryChecker, TPasswordRecoveryChecker } from '@metavest/types/authentication';
 import { useNavigate, useSearch } from '@tanstack/react-router';
 import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';

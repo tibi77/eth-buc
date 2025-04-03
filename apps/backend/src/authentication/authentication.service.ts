@@ -1,6 +1,6 @@
 import { HttpException, HttpStatus, Injectable, NotFoundException, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { Role } from '@bookIt/types/roles';
+import { Role } from '@metavest/types/roles';
 import * as bcrypt from 'bcrypt';
 import { randomBytes } from 'crypto';
 import { ValidUserDto } from 'src/users/dto/validUser.dto';
@@ -93,13 +93,13 @@ export class AuthenticationService {
                 },
                 Message: {
                     Subject: {
-                        Data: 'BookIt - New Account Created',
+                        Data: 'metavest - New Account Created',
                     },
                     Body: {
                         Html: {
                             Data: `Dear Client, </br> Your account has just been created.
-                            <br/> You can now login to your account using email: ${email} and password ${password} </br> Head over to <a href="https://bookIt.com/login">/BookIt</a> to get started. </br>
-                            <br/> Regards, </br> BookIt Team`,
+                            <br/> You can now login to your account using email: ${email} and password ${password} </br> Head over to <a href="https://metavest.com/login">/metavest</a> to get started. </br>
+                            <br/> Regards, </br> metavest Team`,
                         },
                     },
                 },
@@ -167,11 +167,11 @@ export class AuthenticationService {
             },
             Message: {
                 Subject: {
-                    Data: 'BookIt - OTP Verification Code',
+                    Data: 'metavest - OTP Verification Code',
                 },
                 Body: {
                     Html: {
-                        Data: `Dear Client, </br> Your one time password (OTP) is: <b>${code}</b>. </br> This code will expire in 5 minutes. </br> Regards, </br> BookIt Team`,
+                        Data: `Dear Client, </br> Your one time password (OTP) is: <b>${code}</b>. </br> This code will expire in 5 minutes. </br> Regards, </br> metavest Team`,
                     },
                 },
             },

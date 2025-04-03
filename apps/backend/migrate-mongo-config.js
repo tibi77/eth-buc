@@ -6,7 +6,7 @@ const config = {
         url: process.env.DB_URL,
 
         // TODO Change this to your database name:
-        databaseName: "bookit",
+        databaseName: "metavest",
 
         options: {
             //   connectTimeoutMS: 3600000, // increase connection timeout to 1 hour

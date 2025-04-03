@@ -3,7 +3,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@bookIt/*": [
+      "@metavest/*": [
         "packages/*/src"
       ]
     },

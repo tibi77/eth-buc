@@ -65,10 +65,10 @@ export function getProjectRootPath() {
 async function bootstrap() {
     const app = await NestFactory.create(AppModule);
     const config = new DocumentBuilder()
-        .setTitle('bookIt')
-        .setDescription('The bookIt API')
+        .setTitle('metavest')
+        .setDescription('The metavest API')
         .setVersion('1.0')
-        .addTag('bookIt')
+        .addTag('metavest')
         .build();
     patchNestjsSwagger();
 

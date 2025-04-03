@@ -13,10 +13,10 @@
       "@/*": [
         "./src/*"
       ],
-      "@bookIt/types/*": [
+      "@metavest/types/*": [
         "../../packages/types/src/*"
       ],
-      "@bookIt/types": [
+      "@metavest/types": [
         "../../packages/types/src"
       ]
     }

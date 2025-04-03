@@ -26,8 +26,6 @@ export class AuthenticationController {
     return this.authService.otpLogin(verifyDto.email, verifyDto.otp);
   }
 
-  @Roles(Role.Admin)
-  @UseGuards(AuthenticationGuard, RolesGuard)
   @Post('register')
   async register(@Body() registerDto: AuthenticationShapeDto) {
     return this.authService.createUser(registerDto.email, registerDto.password);

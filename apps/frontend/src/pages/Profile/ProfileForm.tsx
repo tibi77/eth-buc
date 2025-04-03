@@ -1,8 +1,8 @@
 import { UserDto } from '@/__generated__/dto-schemas';
 import { CoolSelector } from '@/components/CoolSelector';
 import { Label } from '@/components/ui/label';
-import { UserProfileVerificationShape, WorkingDays, WorkingHours } from '@bookIt/types/user';
-import { utcList } from '@bookIt/types/user/ianaTimezonesList';
+import { UserProfileVerificationShape, WorkingDays, WorkingHours } from '@metavest/types/user';
+import { utcList } from '@metavest/types/user/ianaTimezonesList';
 import { useForm } from 'react-hook-form';
 import { ZodError } from 'zod';
 import { Button } from '../../components/ui/button';

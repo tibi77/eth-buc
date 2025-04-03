@@ -9,7 +9,7 @@ import { ProfileForm } from "@/pages/Profile/ProfileForm";
 import { authContext } from "@/services/authcontext";
 import { defaultValues } from "@/utils/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { UserShapeNoId } from "@bookIt/types/user/user.types";
+import { UserShapeNoId } from "@metavest/types/user/user.types";
 import { useQueryClient } from "@tanstack/react-query";
 import { Loader2 } from "lucide-react";
 import { useCallback, useContext, useEffect, useState } from "react";

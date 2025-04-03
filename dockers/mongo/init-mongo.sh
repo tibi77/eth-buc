@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-mongosh -u "root" -p "bootit2025" --authenticationDatabase admin <<EOF
-use bookit
+ mongosh "mongodb://root:pulse2025@localhost:27018/pulse?authSource=admin" <<EOF
+use metavest
 db.createCollection('defaultCollection')
 EOF

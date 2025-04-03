@@ -1,7 +1,7 @@
 /* eslint-disable @darraghor/nestjs-typed/api-method-should-specify-api-response */
 import { Body, Controller, Delete, Get, Param, Put, UseGuards } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { Role } from '@bookIt/types/roles';
+import { Role } from '@metavest/types/roles';
 import { AuthenticationGuard } from 'src/authentication/authentication.guard';
 import { UserOwned, UserOwnershipGuard } from 'src/authentication/ownership.guard';
 import { UserStatusGuard } from 'src/authentication/user-status.guard';

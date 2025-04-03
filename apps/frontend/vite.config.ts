@@ -12,6 +12,7 @@ export default defineConfig(({ mode }) => {
 
   const port = 3002;
   const proxyPort = 3001;
+  console.log(`http://0.0.0.0:${proxyPort}`)
   return {
     define: {
       __API_BASE_URL__: JSON.stringify(env.VITE_API_BASE_URL),

@@ -15,8 +15,8 @@
       "target": "es2021",
       "baseUrl": "../..",
       "paths": {
-        "@bookIt/types": ["packages/types/src"],
-        "@bookIt/types*": ["packages/types/src/*"],
+        "@metavest/types": ["packages/types/src"],
+        "@metavest/types*": ["packages/types/src/*"],
         "src/*": ["apps/backend/src/*"]
       }
     },

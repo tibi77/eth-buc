@@ -1,5 +1,5 @@
 import { createZodDto } from '@anatine/zod-nestjs';
-import { AuthenticationShape, AuthenticationShapeOtp, PasswordRecoveryChecker } from '@bookIt/types/authentication';
+import { AuthenticationShape, AuthenticationShapeOtp, PasswordRecoveryChecker } from '@metavest/types/authentication';
 
 export class AuthenticationShapeDto extends createZodDto(AuthenticationShape) { }
 export class PasswordRecoveryCheckerDto extends createZodDto(PasswordRecoveryChecker) { }

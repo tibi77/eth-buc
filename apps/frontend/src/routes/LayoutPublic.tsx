@@ -7,7 +7,7 @@ const LayoutPublic = () => {
             <Outlet />
             <div className="hidden md:block md:col-span-2 bg-cover bg-center bg-no-repeat relative" style={{ backgroundImage: `url(${background})` }}>
                 <p className="mt-10 text-xs text-slate-200 absolute bottom-6 left-1/2 transform -translate-x-1/2">
-                    BookIt LLC {(new Date()).getFullYear()} All rights reserved
+                    metavest LLC {(new Date()).getFullYear()} All rights reserved
                 </p>
             </div>
         </div>

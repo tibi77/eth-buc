@@ -1,5 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { TRoleAbilities } from '@bookIt/types/roles/abilities.type';
+import { TRoleAbilities } from '@metavest/types/roles/abilities.type';
 import { Document } from 'mongoose';
 import { Role } from './role.enum';
 

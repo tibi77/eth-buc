@@ -1,4 +1,4 @@
-import { TStatus } from '@bookIt/types/user';
+import { TStatus } from '@metavest/types/user';
 import { createContext } from 'react';
 
 export interface IAuthContextProps {
@@ -48,4 +48,7 @@ export const authContext = createContext<IAuthContextProps>({
   logout: () => {
     console.error('logout not implemented');
   },
+  removeToken: function (): void {
+    throw new Error('Function not implemented.');
+  }
 });

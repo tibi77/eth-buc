@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input';
 import { authContext } from '@/services/authcontext';
 import { formFields } from '@/utils/utilsAuth';
 import { zodResolver } from "@hookform/resolvers/zod";
-import { AuthenticationShape } from "@bookIt/types/authentication";
+import { AuthenticationShape } from "@metavest/types/authentication";
 import { useNavigate } from "@tanstack/react-router";
 import { useCallback, useContext, useEffect, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
@@ -59,7 +59,7 @@ export function Login() {
     <div className='flex flex-col md:col-span-2 justify-between m-auto p-10'>
       <FormProvider {...form}>
         <div className="my-4">
-          <h1 className="text-3xl font-semibold ">BookIt</h1>
+          <h1 className="text-3xl font-semibold ">metavest</h1>
           <p className="mt-2 text-lg">
 
           </p>

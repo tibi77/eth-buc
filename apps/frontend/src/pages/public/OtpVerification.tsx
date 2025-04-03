@@ -93,7 +93,7 @@ const OtpVerification = () => {
 
   return (
     <div className="flex flex-col md:col-span-2 justify-between m-auto p-10 gap-4">
-      <h1 className="text-3xl font-semibold ">Bookit</h1>
+      <h1 className="text-3xl font-semibold ">metavest</h1>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           <FormField

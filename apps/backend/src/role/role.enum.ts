@@ -1,1 +1,1 @@
-export { Role } from "@bookIt/types/roles/abilities.type";
+export { Role } from "@metavest/types/roles/abilities.type";

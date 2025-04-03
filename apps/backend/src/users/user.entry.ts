@@ -1,5 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { StatusValues, timezonesList, TStatus, TUserShapeNoId, TWorkingDays, TWorkingHours } from '@bookIt/types/user';
+import { StatusValues, timezonesList, TStatus, TUserShapeNoId, TWorkingDays, TWorkingHours } from '@metavest/types/user';
 import * as bcrypt from 'bcrypt';
 import { Document, Types } from 'mongoose';
 import { Role } from 'src/role/role.enum';

@@ -1,7 +1,7 @@
 {
   "name": "monorepo",
   "version": "1.0.0",
-  "description": "the Bookit fullstack monorepo",
+  "description": "the metavest fullstack monorepo",
   "workspaces": [
     "apps/*",
     "packages/*"
