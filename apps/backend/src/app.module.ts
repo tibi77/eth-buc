@@ -1,3 +1,4 @@
+import { RequestModule } from './request/request.module';
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ScheduleModule } from '@nestjs/schedule';
@@ -15,6 +16,7 @@ import { mongoConfig } from './database/config/database.config';
         }),
         MongooseModule.forRoot(mongoConfig.url),
         UserModule,
+        RequestModule,
         AuthenticationModule,
         ScheduleModule.forRoot(),
     ]
