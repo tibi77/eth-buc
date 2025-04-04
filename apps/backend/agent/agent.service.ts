@@ -26,9 +26,6 @@ import { StructuredTool } from '@langchain/core/tools';
 import axios from 'axios';
 dotenv.config();
 
-
-
-
 class MarketInfoTool extends StructuredTool {
     description = "Get market information for a specific trading pair (e.g., BTC-USD).";
     name = "marketInfo";
@@ -122,7 +119,7 @@ export class AgentService {
     *
     * @returns Agent executor and config
     */
-    async initializeAgent() {
+    async initializeAgent(pair: string) {
         this.validateEnvironment();
         const WALLET_DATA_FILE = "wallet_data.txt";
         try {
@@ -204,6 +201,7 @@ export class AgentService {
                     empowered to interact onchain using your tools. If not, you can provide your wallet details and request 
                     funds from the user. Before executing your first action, get the wallet details to see what network 
                     you're on. Your need to obtain the most money possible by executing a series of trades.
+                    Your moves should be based on this trading pair ${pair}.
                     Your job is to swap between the provided tokens and make a profit. You can use the tools provided to you to do this.
                 `,
             });
@@ -229,15 +227,15 @@ export class AgentService {
      * @param interval - Time interval between actions in seconds
      */
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    async runAutonomousMode(agent, config, interval = 10) {
+    async runAutonomousMode(agent, config, iterations, pair,interval = 10) {
         console.log("Starting autonomous mode...");
 
         // eslint-disable-next-line no-constant-condition
-        while (true) {
+        while (iterations > 0) {
+            iterations--;
             try {
                 const thought =
-                    "Be creative and do something interesting on the blockchain. " +
-                    "Choose an action or set of actions and execute it that highlights your abilities.";
+                    "Be creative and make a decision based on the current market conditions. ";
 
                 const stream = await agent.stream(
                     { messages: [new HumanMessage(thought)] },
@@ -266,10 +264,13 @@ export class AgentService {
     /**
      * Start the chatbot agent
      */
-    async main() {
+    async main(
+        iterations = 10,
+        pair = "BTC-USD" // Default trading pair
+    ) {
         try {
-            const { agent, config } = await this.initializeAgent();
-            await this.runAutonomousMode(agent, config);
+            const { agent, config } = await this.initializeAgent(pair);
+            await this.runAutonomousMode(agent, config, iterations,pair);
         } catch (error) {
             if (error instanceof Error) {
                 console.error("Error:", error.message);
@@ -277,9 +278,12 @@ export class AgentService {
             process.exit(1);
         }
     }
-    async startTrading() {
+    async startTrading(iterations: number, pair: string) {
         console.log("Starting Agent...");
-        this.main().catch((error) => {
+        this.main(
+            iterations ? parseInt(iterations) : 10,
+            pair ? pair : "BTC-USD"
+        ).catch((error) => {
             console.error("Fatal error:", error);
             process.exit(1);
         });

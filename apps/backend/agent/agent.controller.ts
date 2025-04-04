@@ -2,8 +2,8 @@
 https://docs.nestjs.com/controllers#controllers
 */
 
-import { Controller, Post } from '@nestjs/common';
-import { ApiOkResponse, ApiTags } from '@nestjs/swagger';
+import { Body, Controller, Post } from '@nestjs/common';
+import { ApiBody, ApiOkResponse, ApiTags } from '@nestjs/swagger';
 import { AgentService } from './agent.service';
 
 @Controller("agentNetwork")
@@ -17,8 +17,30 @@ export class AgentController {
 
     @Post("startTrading")
     @ApiOkResponse({ description: 'Trading started successfully', type: String })
-    async startTrading(): Promise<string> {
-        await this.agentService.startTrading();
+    @ApiBody({
+        description: 'Trading parameters',
+        type: Object,
+        examples: {
+            example1: {
+                value: {
+                    iterations: 10,
+                    pair: "BTC/USD"
+                },
+            },
+        },
+    })
+    async startTrading(@Body()
+    {
+        iterations,
+        pair
+    }: {
+        iterations: number;
+        pair: string;
+    }): Promise<string> {
+        await this.agentService.startTrading(
+            iterations,
+            pair
+        );
         return "Trading started successfully";
     }
 }
