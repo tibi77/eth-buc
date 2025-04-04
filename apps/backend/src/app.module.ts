@@ -1,3 +1,4 @@
+import { AgentModule } from './../agent/agent.module';
 import { RequestModule } from './request/request.module';
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
@@ -15,6 +16,7 @@ import { mongoConfig } from './database/config/database.config';
             rootPath: join(__dirname, '..', 'public'),
         }),
         MongooseModule.forRoot(mongoConfig.url),
+        AgentModule,
         UserModule,
         RequestModule,
         AuthenticationModule,

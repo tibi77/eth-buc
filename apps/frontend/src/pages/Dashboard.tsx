@@ -1,7 +1,10 @@
-import React from 'react'
+import { useAgentStartTrading } from "@/__generated__/endpoints/agent.gen";
+import { Button } from "@/components/ui/button";
+import React from "react";
 
 export const Dashboard = () => {
+  const startAgent = useAgentStartTrading();
   return (
-    <div>Dashboard123</div>
-  )
-}
+    <Button onClick={() => startAgent.mutateAsync()}>Start Agent</Button>
+  );
+};
