@@ -22,42 +22,44 @@ import {
 } from "./requst.dto"
 
 @ApiTags('Request')
-@Controller('v1')
+@Controller('requestNetwork')
 export class RequestController {
     constructor(private readonly requestService: RequestService) { }
 
-    @Post('request')
+   @Post("create")
     async createRequest(
-        @Body() createRequestDto: CreateRequestDto
-    ): Promise<RequestResponseDto> {
-        return this.requestService.createRequest(createRequestDto);
-    }
+          @Body() createRequestDto: CreateRequestDto,
+     ): Promise<RequestResponseDto> {
+          return this.requestService.createRequest(createRequestDto);
+     }
+    
+     
+    //  @Get("get/:id")
+    //  async getRequest(
+    //       @Param('id') id: string,
+    //  ): Promise<RequestResponseDto> {
+    //       return this.requestService.getRequest(id);
+    //  }
+    
+    //  @Patch("updateStatus")
+    //  async updateStatus(
+    //       @Body() requestStatusDto: RequestStatusDto,
+    //  ): Promise<RequestResponseDto> {
+    //       return this.requestService.updateStatus(requestStatusDto);
+    //  }
+    
+    //  @Post("paymentCalldata")
+    //  async paymentCalldata(
+    //       @Body() paymentCalldataDto: PaymentCalldataDto,
+    //  ): Promise<PayResponseDto> {
+    //       return this.requestService.paymentCalldata(paymentCalldataDto);
+    //  }
+    
+    //  @Post("pay")
+    //  async pay(
+    //       @Body() payRequestDto: PayRequestDto,
+    //  ): Promise<PayResponseDto> {
+    //       return this.requestService.pay(payRequestDto);
+    //  }
 
-    @Get('request/:paymentReference')
-    async getRequestStatus(
-        @Param('paymentReference') paymentReference: string
-    ): Promise<RequestStatusDto> {
-        return this.requestService.getRequestStatus(paymentReference);
-    }
-
-    @Patch('request/:paymentReference/stop-recurrence')
-    async stopRecurrenceRequest(
-        @Param('paymentReference') paymentReference: string
-    ): Promise<void> {
-        return this.requestService.stopRecurrenceRequest(paymentReference);
-    }
-
-    @Get('request/:paymentReference/pay')
-    async getPaymentCalldata(
-        @Param('paymentReference') paymentReference: string
-    ): Promise<PaymentCalldataDto> {
-        return this.requestService.getPaymentCalldata(paymentReference);
-    }
-
-    @Post('pay')
-    async payRequest(
-        @Body() payRequestDto: PayRequestDto
-    ): Promise<PayResponseDto> {
-        return this.requestService.payRequest(payRequestDto);
-    }
 }
