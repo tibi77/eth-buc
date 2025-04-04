@@ -102,7 +102,7 @@ export class RequestService {
             const { data } = await axios.request(options);
             console.log(data);
             this.invoicesModel.updateOne(
-                { paymentReference: _payRequestDto.paymentReference },
+                { paymentReference: _payRequestDto.payee },
                 {
                     status: "paid",
                     updatedAt: new Date(),

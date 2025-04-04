@@ -62,3 +62,5 @@ apps/frontend/src/__generated__/dto-schemas/*
 !apps/frontend/src/__generated__/dto-schemas/.gitkeep
 apps/frontend/src/__generated__/endpoints/*
 !apps/frontend/src/__generated__/endpoints/.gitkeep
+
+/apps/base-agent/node_modules/
