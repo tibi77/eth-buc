@@ -32,7 +32,9 @@ class MarketInfoTool extends StructuredTool {
     schema = z.object({
         pair: z.string().describe("The trading pair (e.g., BTC-USD)"),
     });
+
     async _call(args: { pair: string }): Promise<string> {
+        console.log(process.env.TM_API_KEY);
         // call TM to get the market information
         // this is going to get the market information only about the thing that the user is asking about
         try {
@@ -40,21 +42,20 @@ class MarketInfoTool extends StructuredTool {
             console.log("Fetching market info for pair:", args.pair);
             const { pair } = args;
             const data = await axios.post('https://api.tokenmetrics.com/v2/tmai', {
+                "messages": [
+                    {
+                        "user": `Please provide all the market information about the pair ${pair}. 
+                                    Tell me the price, the market cap, the volume, the circulating supply, and the total supply.
+                                Also, tell me if the price is going up or down. If you don't know, say you don't know.
+                            `,
+                    }
+                ]
+            }, {
                 headers: {
                     'accept': 'application/json',
                     'api_key': process.env.TM_API_KEY,
                     'content-type': 'application/json',
                 },
-                body: {
-                    "messages": [
-                        {
-                            "user": `Please provide all the market information about the pair ${pair}. 
-                                    Tell me the price, the market cap, the volume, the circulating supply, and the total supply.
-                                Also, tell me if the price is going up or down. If you don't know, say you don't know.
-                            `,
-                        }
-                    ]
-                }
             })
             return data.data;
         } catch (error) {
@@ -227,7 +228,7 @@ export class AgentService {
      * @param interval - Time interval between actions in seconds
      */
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    async runAutonomousMode(agent, config, iterations, pair,interval = 10) {
+    async runAutonomousMode(agent, config, iterations, pair, interval = 10) {
         console.log("Starting autonomous mode...");
 
         // eslint-disable-next-line no-constant-condition
@@ -270,7 +271,7 @@ export class AgentService {
     ) {
         try {
             const { agent, config } = await this.initializeAgent(pair);
-            await this.runAutonomousMode(agent, config, iterations,pair);
+            await this.runAutonomousMode(agent, config, iterations, pair);
         } catch (error) {
             if (error instanceof Error) {
                 console.error("Error:", error.message);
@@ -281,7 +282,7 @@ export class AgentService {
     async startTrading(iterations: number, pair: string) {
         console.log("Starting Agent...");
         this.main(
-            iterations ? parseInt(iterations) : 10,
+            iterations ?? 10, // Default iterations
             pair ? pair : "BTC-USD"
         ).catch((error) => {
             console.error("Fatal error:", error);
